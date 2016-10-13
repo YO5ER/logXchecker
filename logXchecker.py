@@ -69,10 +69,10 @@ class Rules(object):
     Rule example: contest date, contest bands, contest categories.
         [contest]
         name=Cupa Nasaud
-        begindate=20160805
-        enddate=20160806
-        beginhour=1200
-        endhour=1200
+        begindate=20170805
+        enddate=20170806
+        beginhour=1300
+        endhour=0900
         bands=2
         periods=2
         categories=3
@@ -86,20 +86,20 @@ class Rules(object):
 
         [band2]
         band=432
-        regexp=(430|432|70cm)
+        regexp=(430|432|435|70cm)
 
         [period1]
-        begindate=20160805
-        enddate=20160805
-        beginhour=1200
-        endhour=2359
+        begindate=20170805
+        enddate=20170805
+        beginhour=1300
+        endhour=1659
         bands=band1,band2
 
         [period2]
-        begindate=20160806
-        enddate=201608086
-        beginhour=0000
-        endhour=1200
+        begindate=20170806
+        enddate=20170806
+        beginhour=0500
+        endhour=0859
         bands=band1,band2
 
         [category1]
