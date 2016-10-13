@@ -7,10 +7,10 @@ import logXchecker
 valid_rules = """
 [contest]
 name=Cupa Nasaud
-begindate=20160805
-enddate=20160806
-beginhour=1200
-endhour=1200
+begindate=20170805
+enddate=20170806
+beginhour=1300
+endhour=0900
 bands=2
 periods=2
 categories=3
@@ -24,20 +24,20 @@ regexp=(144|145|2m)
 
 [band2]
 band=432
-regexp=(430|432|70cm)
+regexp=(430|432|435|70cm)
 
 [period1]
-begindate=20160805
-enddate=20160805
-beginhour=1200
-endhour=2359
+begindate=20170805
+enddate=20170805
+beginhour=1300
+endhour=1659
 bands=band1,band2
 
 [period2]
-begindate=20160806
-enddate=20160806
-beginhour=0000
-endhour=1200
+begindate=20170806
+enddate=20170806
+beginhour=0500
+endhour=0859
 bands=band1,band2
 
 [category1]
@@ -68,21 +68,21 @@ class TestRules(TestCase):
             rules = logXchecker.Rules('some_rule_file.rules')
 
         self.assertEqual(rules.config.sections(), valid_rules_sections)
-        self.assertEqual(rules.contest_begin_date, '20160805')
+        self.assertEqual(rules.contest_begin_date, '20170805')
 
-        self.assertEqual(rules.contest_end_date, '20160806')
-        self.assertEqual(rules.contest_begin_hour, '1200')
-        self.assertEqual(rules.contest_end_hour, '1200')
+        self.assertEqual(rules.contest_end_date, '20170806')
+        self.assertEqual(rules.contest_begin_hour, '1300')
+        self.assertEqual(rules.contest_end_hour, '0900')
 
         self.assertEqual(rules.contest_bands_nr, 2)
         self.assertEqual(rules.contest_band(1)['band'], '144')
         self.assertEqual(rules.contest_band(2)['band'], '432')
 
         self.assertEqual(rules.contest_periods_nr, 2)
-        self.assertEqual(rules.contest_period(1)['begindate'], '20160805')
-        self.assertEqual(rules.contest_period(1)['enddate'], '20160805')
-        self.assertEqual(rules.contest_period(1)['beginhour'], '1200')
-        self.assertEqual(rules.contest_period(1)['endhour'], '2359')
+        self.assertEqual(rules.contest_period(1)['begindate'], '20170805')
+        self.assertEqual(rules.contest_period(1)['enddate'], '20170805')
+        self.assertEqual(rules.contest_period(1)['beginhour'], '1300')
+        self.assertEqual(rules.contest_period(1)['endhour'], '1659')
         self.assertEqual(rules.contest_period(1)['bands'], 'band1,band2')
         self.assertEqual(list(rules.contest_period_bands(1)), ['band1', 'band2'])
 
